@@ -19,3 +19,6 @@ Para correr a app ligar por cabo o telemóvel ao PC esperar que o Android Studio
 E correr a app
 
 Se não correr bem ao inicio é por falta permissões, ir às definições e dar permissões
+
+# Testar o código
+Há uma pasta chamada ImagensQRCode que tem as 2 imagens para os quais estão implementadas
