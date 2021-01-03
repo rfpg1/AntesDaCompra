@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.budiyev.android.codescanner.CodeScanner;
@@ -17,14 +18,15 @@ import com.google.zxing.Result;
 public class MainActivity extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
-    private Button button;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button);
-        button.setVisibility(View.INVISIBLE);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setVisibility(View.INVISIBLE);
+        DatabaseHandler dbh = new DatabaseHandler(this);
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
         mCodeScanner = new CodeScanner(this, scannerView);
         //Caso queira dar scan a mais que um objeto continuamente
@@ -35,10 +37,9 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //TODO fazer o result.getText() comparar com uma database!
-                        Toast.makeText(MainActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
-                        button.setVisibility(View.VISIBLE);
-                        button.setText(result.getText());
+                        //TODO
+                        // fazer o result.getText() comparar com uma database
+                        imageView.setVisibility(View.VISIBLE);
                     }
                 });
             }
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mCodeScanner.startPreview();
-                button.setVisibility(View.INVISIBLE);
+                imageView.setVisibility(View.INVISIBLE);
             }
         });
     }
