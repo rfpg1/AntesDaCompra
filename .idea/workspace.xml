@@ -28,36 +28,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a17e5658-1159-41fc-b0a3-42d3682e91eb" name="Default Changelist" comment="ImagesGallery">
-      <change afterPath="$PROJECT_DIR$/Paths.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/DataBaseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/Produto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/araujo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/dio.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R58N61NWCXY]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -81,6 +62,7 @@
         <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="valueResourceFile" />
       </list>
     </option>
   </component>
@@ -212,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609783979932</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ImagesGallery">
+      <created>1609963455829</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609963455830</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,34 +248,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="144" y="83" width="1736" height="856" key="AVDManager/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609712723306" />
-    <state x="540" y="275" key="AndroidCreateResourceFileDialog" timestamp="1609773691946">
+    <state x="540" y="275" key="AndroidCreateResourceFileDialog" timestamp="1609964339815">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="275" key="AndroidCreateResourceFileDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609773691946" />
+    <state x="540" y="275" key="AndroidCreateResourceFileDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609964339815" />
+    <state x="804" y="310" key="AndroidCreateXmlResourceDialog" timestamp="1609964236879">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="804" y="310" key="AndroidCreateXmlResourceDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609964236879" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609654567945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609654567945" />
-    <state width="1876" height="237" key="GridCell.Tab.0.bottom" timestamp="1609963379709">
+    <state width="1876" height="237" key="GridCell.Tab.0.bottom" timestamp="1609968047712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="237" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1609791026587" />
-    <state width="1876" height="237" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609963379709" />
-    <state width="1876" height="237" key="GridCell.Tab.0.center" timestamp="1609963379709">
+    <state width="1876" height="237" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609968047712" />
+    <state width="1876" height="237" key="GridCell.Tab.0.center" timestamp="1609968047712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="237" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1609791026587" />
-    <state width="1876" height="237" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609963379709" />
-    <state width="1876" height="237" key="GridCell.Tab.0.left" timestamp="1609963379709">
+    <state width="1876" height="237" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609968047712" />
+    <state width="1876" height="237" key="GridCell.Tab.0.left" timestamp="1609968047712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="237" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1609791026587" />
-    <state width="1876" height="237" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609963379709" />
-    <state width="1876" height="237" key="GridCell.Tab.0.right" timestamp="1609963379709">
+    <state width="1876" height="237" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609968047712" />
+    <state width="1876" height="237" key="GridCell.Tab.0.right" timestamp="1609968047712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="237" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1609791026587" />
-    <state width="1876" height="237" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609963379709" />
+    <state width="1876" height="237" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609968047712" />
     <state x="6" y="0" width="1914" height="1040" key="IDE.errors.dialog" timestamp="1609650832366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -295,10 +288,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609644768959" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1609783985411">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1609963458040">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609783985411" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1609963458040" />
     <state x="776" y="298" key="chooseDestDirectoryDialog" timestamp="1609819641747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

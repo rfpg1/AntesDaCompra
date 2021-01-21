@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BeforeYouBuy</string>
+    <string name="scan">Scan something...</string>
+    <string name="image">Image</string>
 </resources>

@@ -32,6 +32,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
 
     private CodeScanner mCodeScanner;
+    private CodeScannerView scannerView;
     private ImageView imageView;
 
     private final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -41,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private final int REQUEST_CAMERA = 2;
 
     private DataBaseHandler dataBaseHandler;
-    private final long ONE_MEGABYTE = 1024 * 1024;
-
-
-    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +52,17 @@ public class MainActivity extends AppCompatActivity {
         /******************************Verifica Permissões***********************************/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CodeScannerView scannerView = findViewById(R.id.scanner_view);
+        scannerView = findViewById(R.id.scanner_view);
         this.mCodeScanner = new CodeScanner(this, scannerView);
         this.dataBaseHandler = new DataBaseHandler(getResources());
         //Caso queira dar scan a mais que um objeto continuamente
         //mCodeScanner.setScanMode(ScanMode.CONTINUOUS);
         imageView = findViewById(R.id.imageView);
-        //imageView.setVisibility(View.INVISIBLE);
+        imageView.setVisibility(View.INVISIBLE);
+        scan();
+    }
 
+    private void scan() {
         this.mCodeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull Result result) {
@@ -122,21 +122,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Adoro este metodo vao para o caralho!
-    //Abre a galeria toda e permite escolher uma imagem
-    //Uso isto para descobrir o path dela
-    private void escolheFoto() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, 101);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Log.e("@@@@@@@@@@@@@@@@@",data.getDataString());
-
-    }
-
     private void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -148,19 +133,6 @@ public class MainActivity extends AppCompatActivity {
                     PERMISSIONS_STORAGE,
                     REQUEST_EXTERNAL_STORAGE
             );
-        }
-    }
-
-    //Acho que não preciso!
-    private void checkFilePermissions() {
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
-            int permissionCheck = MainActivity.this.checkSelfPermission("Manifest.permission.READ_EXTERNAL_STORAGE");
-            permissionCheck += MainActivity.this.checkSelfPermission("Manifest.permission.WRITE_EXTERNAL_STORAGE");
-            if (permissionCheck != 0) {
-                this.requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1001); //Any number
-            }
-        }else{
-            Log.d("MainActivity", "checkBTPermissions: No need to check permissions. SDK version < LOLLIPOP.");
         }
     }
 
