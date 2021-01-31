@@ -1,5 +1,8 @@
 package com.example.beforeyoubuy.ui.home;
-
+//TODO
+// Base de dados dos favoritos
+// Ir verificar quando se dá scan se ele ta nos favoritos, para ver qual a imagem que aparece
+// Quando se clica na imagem ela alerar logo
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -40,6 +44,7 @@ public class HomeFragment extends Fragment {
     private View root;
 
     private Activity activity;
+    private ImageButton imageButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,6 +72,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 imageView.setVisibility(View.INVISIBLE);
                 buttonHandler.invisible();
+                imageButton.setVisibility(View.INVISIBLE);
                 mCodeScanner.startPreview();
             }
         });
@@ -74,6 +80,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void setUpScanner() {
+        this.imageButton = root.findViewById(R.id.favorite);
+        imageButton.setVisibility(View.INVISIBLE);
         this.imageView = root.findViewById(R.id.imageView);
         this.dataBaseHandler = new DataBaseHandler();
         button = root.findViewById(R.id.button);
@@ -101,6 +109,7 @@ public class HomeFragment extends Fragment {
                     imageView.setVisibility(View.VISIBLE);
                     imageView.setBackgroundColor(Color.TRANSPARENT);
                     buttonHandler.newProduct(p.get("name"));
+                    imageButton.setVisibility(View.VISIBLE);
                 }
             }
 
