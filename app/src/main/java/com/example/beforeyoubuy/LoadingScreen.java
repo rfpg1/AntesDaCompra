@@ -18,7 +18,7 @@ public class LoadingScreen extends AppCompatActivity {
     private final String[] PERMISSIONS_CAMERA = {Manifest.permission.CAMERA};
     private final int REQUEST_CAMERA = 2;
 
-    private final int SPLASH_TIME_OUT = 4000;
+    private final int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -34,7 +34,8 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
 
-    private static final String TITULO = "";
+    private final String TITULO = "";
+    private final String PAI = "produtos";
     private CodeScanner mCodeScanner;
     private ImageView imageView;
     private DataBaseHandler dataBaseHandler;
@@ -44,10 +45,11 @@ public class HomeFragment extends Fragment {
     private View root;
 
     private Activity activity;
-    private ImageButton imageButton;
+    private ImageButton favorite;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         root = inflater.inflate(R.layout.fragment_home, container, false);
         activity = getActivity();
 
@@ -61,7 +63,7 @@ public class HomeFragment extends Fragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.e(" Novo Produto: ",result.getText());
+                        Log.e(" New product scanned: ",result.getText());
                         getProduto(result.getText());
                     }
                 });
@@ -72,7 +74,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 imageView.setVisibility(View.INVISIBLE);
                 buttonHandler.invisible();
-                imageButton.setVisibility(View.INVISIBLE);
+                favorite.setVisibility(View.INVISIBLE);
                 mCodeScanner.startPreview();
             }
         });
@@ -80,13 +82,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void setUpScanner() {
-        this.imageButton = root.findViewById(R.id.favorite);
-        imageButton.setVisibility(View.INVISIBLE);
+        this.favorite = root.findViewById(R.id.favorite);
         this.imageView = root.findViewById(R.id.imageView);
         this.dataBaseHandler = new DataBaseHandler();
         button = root.findViewById(R.id.button);
         scannerView = root.findViewById(R.id.scanner_view);
-        this.buttonHandler = new ButtonHandler(button);
+        this.buttonHandler = new ButtonHandler(button, favorite, dataBaseHandler);
         buttonHandler.invisible();
         imageView.setVisibility(View.INVISIBLE);
         mCodeScanner = new CodeScanner(activity, scannerView);
@@ -98,26 +99,21 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private void getProduto(String nome) {
-        DatabaseReference db = dataBaseHandler.getDatabase(nome);
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                HashMap<String, String> p = (HashMap) snapshot.getValue();
-                if(p != null){
-                    imageView.setImageResource(Integer.parseInt(p.get("id")));
-                    imageView.setVisibility(View.VISIBLE);
-                    imageView.setBackgroundColor(Color.TRANSPARENT);
-                    buttonHandler.newProduct(p.get("name"));
-                    imageButton.setVisibility(View.VISIBLE);
-                }
+    private void getProduto(String produto) {
+        int value = dataBaseHandler.getProduto(produto);
+        if (value != 0) { // Value == 0 => Não existe produto
+            int pegadaEcologica = dataBaseHandler.getPegadaEcologica(produto);
+            imageView.setImageResource(value);
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setBackgroundColor(Color.TRANSPARENT);
+            buttonHandler.newProduct(produto, value, pegadaEcologica);
+            favorite.setVisibility(View.VISIBLE);
+            if(dataBaseHandler.isFavorite(produto)){
+                favorite.setImageResource(R.drawable.favorite);
+            } else {
+                favorite.setImageResource(R.drawable.pre_favorite);
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("Novo Produto: ",  "Cancelado");
-            }
-        });
+        }
     }
 
     @Override
