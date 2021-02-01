@@ -27,31 +27,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a17e5658-1159-41fc-b0a3-42d3682e91eb" name="Default Changelist" comment="update 21/01 16:03">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ui/favorite/Adapter/AdapterFavorite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/icon_seven_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/seven_up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/adapter_favorite.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ButtonHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ButtonHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/DataBaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/DataBaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/LoadingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ui/favorite/FavoriteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ui/favorite/FavoriteFragment.java" afterDir="false" />
+    <list default="true" id="a17e5658-1159-41fc-b0a3-42d3682e91eb" name="Default Changelist" comment="update 1/02 05:07&#10;Sistama de favoritos feito falta apresentá-lo">
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ui/home/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/beforeyoubuy/ui/home/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_loading_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_loading_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612123807324</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update 1/02 05:07&#10;Sistama de favoritos feito falta apresentá-lo">
+      <created>1612156052426</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612156052426</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,7 +259,8 @@
     <MESSAGE value="database" />
     <MESSAGE value="ImagesGallery" />
     <MESSAGE value="update 21/01 16:03" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 21/01 16:03" />
+    <MESSAGE value="update 1/02 05:07&#10;Sistama de favoritos feito falta apresentá-lo" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 1/02 05:07&#10;Sistama de favoritos feito falta apresentá-lo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="477" y="266" key="#PSD" timestamp="1612124278493">
@@ -326,26 +311,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612151923643" />
-    <state width="1876" height="199" key="GridCell.Tab.0.bottom" timestamp="1612155697620">
+    <state width="1876" height="199" key="GridCell.Tab.0.bottom" timestamp="1612156147615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="185" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1611948726577" />
-    <state width="1876" height="199" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612155697620" />
-    <state width="1876" height="199" key="GridCell.Tab.0.center" timestamp="1612155697620">
+    <state width="1876" height="199" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612156147615" />
+    <state width="1876" height="199" key="GridCell.Tab.0.center" timestamp="1612156147615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="185" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1611948726577" />
-    <state width="1876" height="199" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612155697620" />
-    <state width="1876" height="199" key="GridCell.Tab.0.left" timestamp="1612155697620">
+    <state width="1876" height="199" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612156147615" />
+    <state width="1876" height="199" key="GridCell.Tab.0.left" timestamp="1612156147615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="185" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1611948726576" />
-    <state width="1876" height="199" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612155697620" />
-    <state width="1876" height="199" key="GridCell.Tab.0.right" timestamp="1612155697620">
+    <state width="1876" height="199" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612156147615" />
+    <state width="1876" height="199" key="GridCell.Tab.0.right" timestamp="1612156147615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="185" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@-1920.0.1920.1040" timestamp="1611948726577" />
-    <state width="1876" height="199" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612155697620" />
+    <state width="1876" height="199" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1612156147615" />
     <state x="6" y="0" width="1914" height="1040" key="IDE.errors.dialog" timestamp="1609650832366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -2,7 +2,6 @@ package com.example.beforeyoubuy.ui.home;
 //TODO
 // Base de dados dos favoritos
 // Ir verificar quando se dá scan se ele ta nos favoritos, para ver qual a imagem que aparece
-// Quando se clica na imagem ela alerar logo
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
