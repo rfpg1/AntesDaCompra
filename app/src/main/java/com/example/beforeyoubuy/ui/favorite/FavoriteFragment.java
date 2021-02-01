@@ -25,15 +25,17 @@ public class FavoriteFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_favorite, container, false);
         this.recyclerView = root.findViewById(R.id.recyclerView);
-        DataBaseHandler dataBaseHandler = new DataBaseHandler();
-        ArrayList<Produto> listaDeProdutos = dataBaseHandler.getFavoritos();
-
-        AdapterFavorite adapter = new AdapterFavorite(listaDeProdutos);
+        DataBaseHandler dataBaseHandler = DataBaseHandler.getInstance();
 
         //Configurar o RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+
+        ArrayList<Produto> listaDeProdutos = dataBaseHandler.getFavoritos();
+
+        AdapterFavorite adapter = new AdapterFavorite(listaDeProdutos);
+
         recyclerView.setAdapter(adapter);
 
         return root;

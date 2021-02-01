@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -18,31 +20,33 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="350px"
-                android:layout_height="350px"
-                android:src="@drawable/icon_seven_up"
-                android:layout_marginLeft="-56dp"/>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="0dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/icon_seven_up" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="164dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nome"/>
+                android:text="@string/nome" />
 
             <TextView
                 android:id="@+id/pegada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pegada Ecológica"/>
+                android:text="@string/pegada_ecol_gica" />
 
         </LinearLayout>
     </LinearLayout>

@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
     private void setUpScanner() {
         this.favorite = root.findViewById(R.id.favorite);
         this.imageView = root.findViewById(R.id.imageView);
-        this.dataBaseHandler = new DataBaseHandler();
+        this.dataBaseHandler = DataBaseHandler.getInstance();
         button = root.findViewById(R.id.button);
         scannerView = root.findViewById(R.id.scanner_view);
         this.buttonHandler = new ButtonHandler(button, favorite, dataBaseHandler);

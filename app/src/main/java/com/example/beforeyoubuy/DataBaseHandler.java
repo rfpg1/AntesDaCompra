@@ -3,7 +3,9 @@ package com.example.beforeyoubuy;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,6 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class DataBaseHandler {
 
+    private static DataBaseHandler INSTANCE = null;
+
+    private final String REMOVER = "remover";
     private final int PEGADA_ECOLOGICA = 0;
     private final String FAVORITO = "favoritos";
     private ArrayList<Produto> listaDeProdutos;
@@ -23,36 +28,58 @@ public class DataBaseHandler {
 
     private DatabaseReference database;
 
-    public DataBaseHandler(){
+    public static DataBaseHandler getInstance(){
+        if(INSTANCE == null){
+            INSTANCE = new DataBaseHandler();
+        }
+        return INSTANCE;
+    }
+
+    protected DataBaseHandler(){
         listaDeProdutos = new ArrayList<>();
         this.database = FirebaseDatabase.getInstance(INSTANCE_FIREBASE_REALTIME).getReference();
         this.favoritos = new ArrayList<>();
-        loadProdutos();
-    }
-
-    private void loadProdutos() {
-        listaDeProdutos.add(new Produto("araujo", R.drawable.araujo, PEGADA_ECOLOGICA));
-        listaDeProdutos.add(new Produto("dio", R.drawable.dio, PEGADA_ECOLOGICA));
-        database.addValueEventListener(new ValueEventListener() {
+        database.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                HashMap p = (HashMap) snapshot.getValue();
-                for(Object o : p.keySet()){
-                    if(o.toString().equals(FAVORITO)){
-                        HashMap fav = (HashMap) p.get(o);
-                        for(Object obj : fav.keySet()){
-                            HashMap key = (HashMap) fav.get(obj);
-                            String name = (String) key.get("name");
-                            int value = ((Long) key.get("id")).intValue();
-                            int pegadaEcologica = ((Long) key.get("pegadaEcologica")).intValue();
-                            Produto produto = new Produto(name, value, pegadaEcologica);
-                            if(!isFavorite(produto.getName()))
-                                favoritos.add(produto);
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.e("Child added", "");
+                Log.e("snapshot", snapshot.toString());
+                Log.e("snapshot key", snapshot.getKey());
+                Log.e("snapshot value", snapshot.getValue().toString());
+
+                if(snapshot.getKey().equals(FAVORITO)){
+                    HashMap key = (HashMap) snapshot.getValue();
+                    Log.e("DataSnapShot key", key.toString());
+                    for(Object s : key.keySet()){
+                        HashMap obj = (HashMap) key.get(s);
+                        Log.e("Obj", obj.toString());
+                        String name = (String) obj.get("name");
+                        int value = ((Long) obj.get("id")).intValue();
+                        int pegadaEcologica = ((Long) obj.get("pegadaEcologica")).intValue();
+                        Produto produto = new Produto(name, value, pegadaEcologica);
+                        if(!isFavorite(produto.getName())){
+                            favoritos.add(produto);
+                            Log.e("Favorito " , "Adicionado");
                         }
-                    } else if(o.toString().equals("produtos")){
-                        //TODO
                     }
+                } else if(snapshot.getKey().equals("produtos")){
+                    //TODO
                 }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                //Do nothing
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                //Do nothing
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                //Do nothing
             }
 
             @Override
@@ -60,6 +87,16 @@ public class DataBaseHandler {
                 Log.e("Base de dados", "Cancelado");
             }
         });
+        loadProdutos();
+        Log.e("Adicionafilho a remover", "REMOVER");
+        database.child(REMOVER).setValue(REMOVER);
+        database.child(REMOVER).removeValue();
+        Log.e("Adicionafilho a remover", "Acabado");
+    }
+
+    private void loadProdutos() {
+        listaDeProdutos.add(new Produto("araujo", R.drawable.araujo, PEGADA_ECOLOGICA));
+        listaDeProdutos.add(new Produto("dio", R.drawable.dio, PEGADA_ECOLOGICA));
     }
 
     /**
@@ -126,6 +163,7 @@ public class DataBaseHandler {
     }
 
     public ArrayList<Produto> getFavoritos() {
+        Log.e("Favoritos", favoritos.toString());
         return favoritos;
     }
 }

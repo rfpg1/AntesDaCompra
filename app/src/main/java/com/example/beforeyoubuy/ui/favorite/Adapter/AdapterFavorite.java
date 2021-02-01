@@ -38,8 +38,9 @@ public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.Favori
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
+
         holder.setImagem(listaDeProdutos.get(position).getId());
-        holder.setNome(listaDeProdutos.get(position).getName());
+        holder.setNome("Produto: " + listaDeProdutos.get(position).getName());
         holder.setPegada(listaDeProdutos.get(position).getPegadaEcologica());
     }
 
@@ -55,28 +56,16 @@ public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.Favori
             this.pegada = itemView.findViewById(R.id.pegada);
         }
 
-        public ImageView getImagem() {
-            return imagem;
-        }
-
         public void setImagem(int imagem) {
             this.imagem.setImageResource(imagem);
-        }
-
-        public TextView getNome() {
-            return nome;
         }
 
         public void setNome(String nome) {
             this.nome.setText(nome);
         }
 
-        public TextView getPegada() {
-            return pegada;
-        }
-
         public void setPegada(int pegada) {
-            this.pegada.setText(pegada);
+            this.pegada.setText("Pegada Ecólogica: " + String.valueOf(pegada));
         }
     }
 }
