@@ -24,8 +24,9 @@
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_marginTop="630dp"
-        android:layout_alignParentRight="true"
-        android:backgroundTint="@android:color/transparent"/>
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/todo" />
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner_view"

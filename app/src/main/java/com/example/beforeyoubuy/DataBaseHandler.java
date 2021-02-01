@@ -40,15 +40,12 @@ public class DataBaseHandler {
                 for(Object o : p.keySet()){
                     if(o.toString().equals(FAVORITO)){
                         HashMap fav = (HashMap) p.get(o);
-                        Log.e("HashMap:" , fav.toString());
                         for(Object obj : fav.keySet()){
-                            Log.e("KEY ", obj.toString());
                             HashMap key = (HashMap) fav.get(obj);
                             String name = (String) key.get("name");
                             int value = ((Long) key.get("id")).intValue();
                             int pegadaEcologica = ((Long) key.get("pegadaEcologica")).intValue();
                             Produto produto = new Produto(name, value, pegadaEcologica);
-                            Log.e("Produto ", produto.toString());
                             if(!isFavorite(produto.getName()))
                                 favoritos.add(produto);
                         }
@@ -126,5 +123,9 @@ public class DataBaseHandler {
             }
         }
         return 0;
+    }
+
+    public ArrayList<Produto> getFavoritos() {
+        return favoritos;
     }
 }

@@ -9,10 +9,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.beforeyoubuy.Produto;
 import com.example.beforeyoubuy.R;
+
+import java.util.ArrayList;
 
 public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.FavoriteViewHolder> {
 
+
+    private final ArrayList<Produto> listaDeProdutos;
+
+    public AdapterFavorite(ArrayList<Produto> listaDeProdutos) {
+        this.listaDeProdutos = listaDeProdutos;
+    }
 
     @NonNull
     @Override
@@ -24,12 +33,14 @@ public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.Favori
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listaDeProdutos.size();
     }
 
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
-
+        holder.setImagem(listaDeProdutos.get(position).getId());
+        holder.setNome(listaDeProdutos.get(position).getName());
+        holder.setPegada(listaDeProdutos.get(position).getPegadaEcologica());
     }
 
     public class FavoriteViewHolder extends RecyclerView.ViewHolder{
@@ -48,24 +59,24 @@ public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.Favori
             return imagem;
         }
 
-        public void setImagem(ImageView imagem) {
-            this.imagem = imagem;
+        public void setImagem(int imagem) {
+            this.imagem.setImageResource(imagem);
         }
 
         public TextView getNome() {
             return nome;
         }
 
-        public void setNome(TextView nome) {
-            this.nome = nome;
+        public void setNome(String nome) {
+            this.nome.setText(nome);
         }
 
         public TextView getPegada() {
             return pegada;
         }
 
-        public void setPegada(TextView pegada) {
-            this.pegada = pegada;
+        public void setPegada(int pegada) {
+            this.pegada.setText(pegada);
         }
     }
 }

@@ -34,7 +34,6 @@ import java.util.HashMap;
 public class HomeFragment extends Fragment {
 
     private final String TITULO = "";
-    private final String PAI = "produtos";
     private CodeScanner mCodeScanner;
     private ImageView imageView;
     private DataBaseHandler dataBaseHandler;
