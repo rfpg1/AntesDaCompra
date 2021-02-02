@@ -10,7 +10,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +28,7 @@ public class DataBaseHandler {
     private DatabaseReference database;
 
     public static DataBaseHandler getInstance(){
-        if(INSTANCE == null){
+        if(INSTANCE == null){ //SINGLETON
             INSTANCE = new DataBaseHandler();
         }
         return INSTANCE;
@@ -43,10 +42,6 @@ public class DataBaseHandler {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Log.e("Child added", "");
-                Log.e("snapshot", snapshot.toString());
-                Log.e("snapshot key", snapshot.getKey());
-                Log.e("snapshot value", snapshot.getValue().toString());
-
                 if(snapshot.getKey().equals(FAVORITO)){
                     HashMap key = (HashMap) snapshot.getValue();
                     Log.e("DataSnapShot key", key.toString());
@@ -54,16 +49,15 @@ public class DataBaseHandler {
                         HashMap obj = (HashMap) key.get(s);
                         Log.e("Obj", obj.toString());
                         String name = (String) obj.get("name");
-                        int value = ((Long) obj.get("id")).intValue();
+                        String value = (String) obj.get("id");
                         int pegadaEcologica = ((Long) obj.get("pegadaEcologica")).intValue();
-                        Produto produto = new Produto(name, value, pegadaEcologica);
+                        int imagem = ((Long) obj.get("imagem")).intValue();
+                        Produto produto = new Produto(name, value, pegadaEcologica, imagem);
                         if(!isFavorite(produto.getName())){
                             favoritos.add(produto);
                             Log.e("Favorito " , "Adicionado");
                         }
                     }
-                } else if(snapshot.getKey().equals("produtos")){
-                    //TODO
                 }
             }
 
@@ -88,66 +82,68 @@ public class DataBaseHandler {
             }
         });
         loadProdutos();
-        Log.e("Adicionafilho a remover", "REMOVER");
         database.child(REMOVER).setValue(REMOVER);
         database.child(REMOVER).removeValue();
-        Log.e("Adicionafilho a remover", "Acabado");
     }
 
     private void loadProdutos() {
-        listaDeProdutos.add(new Produto("araujo", R.drawable.araujo, PEGADA_ECOLOGICA));
-        listaDeProdutos.add(new Produto("dio", R.drawable.dio, PEGADA_ECOLOGICA));
+        listaDeProdutos.add(new Produto("Pacote de Leite", "8480017005045", PEGADA_ECOLOGICA, R.drawable.pacote_de_leite));
+        listaDeProdutos.add(new Produto("Mini Oreo", "7622300165628", PEGADA_ECOLOGICA, R.drawable.mini_oreo));
     }
 
     /**
      *
-     * @param nome
-     * @param id
-     * @param pegadaEcologica
-     * @requires nao seja favorito!
+     * @param nome nome do Produto
+     * @param id id do produto
+     * @param pegadaEcologica pegada ecologica do produto
+     * @param imagem imagem do produto
+     * requires nao seja favorito!
      */
-    public void addFavorite(String nome, int id, int pegadaEcologica){
+    public void addFavorite(String nome, String id, int pegadaEcologica, int imagem){
         Log.e("Adicionado Favorito", nome);
-        favoritos.add(new Produto(nome, id, pegadaEcologica));
-        database.child(FAVORITO).child(nome).setValue(new Produto(nome, id, pegadaEcologica));
+        favoritos.add(new Produto(nome, id, pegadaEcologica, imagem));
+        database.child(FAVORITO).child(nome).setValue(new Produto(nome, id, pegadaEcologica, imagem));
     }
 
     public boolean isFavorite(String favorito) {
+        Log.e("Produto", favorito);
+        Log.e("Favoritos", favoritos.toString());
         for(Produto p : favoritos){
-            Log.e("Produto", p.toString());
             if(p.getName().equals(favorito)){
+                Log.e("return", "true");
                 return true;
             }
         }
+        Log.e("return", "false");
         return false;
     }
 
-    public void removeFavorite(String favorito) {
-        Log.e("Removido Favorito", favorito);
-        database.child(FAVORITO).child(favorito).removeValue();
-        removeProduto(favorito);
-    }
-
-    private void removeProduto(String favorito) {
-        Produto p = getP(favorito);
-        if(p != null){
-            favoritos.remove(p);
+    public void removeFavorite(String nome) {
+        if(nome != null) {
+            Log.e("Removido Favorito", nome);
+            database.child(FAVORITO).child(nome).removeValue();
+            removeProduto(nome);
         }
     }
 
-    private Produto getP(String favorito) {
-        for(Produto p : listaDeProdutos){
-            if(p.getName().equals(favorito)){
-                return p;
+    private void removeProduto(String nome) {
+        if(nome != null){
+            int count = 0;
+            for (Produto p : favoritos) {
+                if(p.getName().equals(nome)){
+                    favoritos.remove(count);
+                    break;
+                } else {
+                    count++;
+                }
             }
         }
-        return null;
     }
 
-    public int getProduto(String produto) {
+    public int getImagemProduto(String produto) {
         for(Produto p : listaDeProdutos){
-            if(p.getName().equals(produto)){
-                return p.getId();
+            if(produto.equals(p.getId())){
+                return p.getImagem();
             }
         }
         return 0;
@@ -163,7 +159,24 @@ public class DataBaseHandler {
     }
 
     public ArrayList<Produto> getFavoritos() {
-        Log.e("Favoritos", favoritos.toString());
         return favoritos;
+    }
+
+    public String getNomeProduto(String produto) {
+        for(Produto p : listaDeProdutos){
+            if(p.getId().equals(produto)){
+                return p.getName();
+            }
+        }
+        return null;
+    }
+
+    public Produto getProduto(String produto) {
+        for(Produto p : listaDeProdutos){
+            if(p.getName().equals(produto)){
+                return p;
+            }
+        }
+        return null;
     }
 }

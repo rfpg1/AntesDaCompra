@@ -1,7 +1,5 @@
 package com.example.beforeyoubuy.ui.home;
-//TODO
-// Base de dados dos favoritos
-// Ir verificar quando se dá scan se ele ta nos favoritos, para ver qual a imagem que aparece
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.budiyev.android.codescanner.CodeScanner;
@@ -23,13 +21,7 @@ import com.budiyev.android.codescanner.DecodeCallback;
 import com.example.beforeyoubuy.ButtonHandler;
 import com.example.beforeyoubuy.DataBaseHandler;
 import com.example.beforeyoubuy.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.Result;
-
-import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
 
@@ -91,26 +83,34 @@ public class HomeFragment extends Fragment {
         mCodeScanner = new CodeScanner(activity, scannerView);
     }
 
+    /**
+     * @requires R.id.toolbar exista
+     */
     private void setUpToolbar() {
-        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle(TITULO);
     }
 
 
     private void getProduto(String produto) {
-        int value = dataBaseHandler.getProduto(produto);
-        if (value != 0) { // Value == 0 => Não existe produto
+        int imagem = dataBaseHandler.getImagemProduto(produto);
+        Log.e("Imagem: ", imagem + "");
+        if (imagem != 0) { // Imagem == 0 => Não existe produto
+            Log.e("Produto", "Existe");
             int pegadaEcologica = dataBaseHandler.getPegadaEcologica(produto);
-            imageView.setImageResource(value);
+            String nome = dataBaseHandler.getNomeProduto(produto);
+            imageView.setImageResource(imagem);
             imageView.setVisibility(View.VISIBLE);
             imageView.setBackgroundColor(Color.TRANSPARENT);
-            buttonHandler.newProduct(produto, value, pegadaEcologica);
+            buttonHandler.newProduct(nome, produto, pegadaEcologica, imagem);
             favorite.setVisibility(View.VISIBLE);
-            if(dataBaseHandler.isFavorite(produto)){
+            if(dataBaseHandler.isFavorite(nome)){
                 favorite.setImageResource(R.drawable.favorite);
             } else {
                 favorite.setImageResource(R.drawable.pre_favorite);
             }
+        } else {
+            Log.e("Produto", "Não existe");
         }
     }
 

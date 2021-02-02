@@ -2,19 +2,9 @@ package com.example.beforeyoubuy;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-
-import androidx.annotation.NonNull;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
 
 public class ButtonHandler {
 
@@ -22,8 +12,9 @@ public class ButtonHandler {
     private ImageButton imageButton;
     private DataBaseHandler dataBaseHandler;
     private String produto;
-    private int id;
+    private String id;
     private int pegadaEcologica;
+    private int imagem;
 
     public ButtonHandler(Button button, ImageButton imageButton, DataBaseHandler dataBaseHandler){
         this.button = button;
@@ -37,7 +28,7 @@ public class ButtonHandler {
                     dataBaseHandler.removeFavorite(produto);
                     imageButton.setImageResource(R.drawable.pre_favorite);
                 } else {
-                    dataBaseHandler.addFavorite(produto, id, pegadaEcologica);
+                    dataBaseHandler.addFavorite(produto, id, pegadaEcologica, imagem);
                     imageButton.setImageResource(R.drawable.favorite);
                 }
             }
@@ -45,13 +36,14 @@ public class ButtonHandler {
     }
 
     @SuppressLint("ResourceAsColor")
-    public void newProduct(String produto, int id, int pegadaEcologica) {
+    public void newProduct(String produto, String id, int pegadaEcologica, int imagem) {
         button.setBackgroundColor(Color.WHITE);
         button.setText(produto);
         button.setVisibility(View.VISIBLE);
         this.produto = produto;
         this.id = id;
         this.pegadaEcologica = pegadaEcologica;
+        this.imagem = imagem;
     }
 
     public void invisible() {

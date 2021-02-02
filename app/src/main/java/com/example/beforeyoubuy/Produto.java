@@ -1,16 +1,20 @@
 package com.example.beforeyoubuy;
 
+import androidx.annotation.Nullable;
+
 import java.util.Objects;
 
 public class Produto {
     private int pegadaEcologica;
     private String name;
-    private int id;
+    private String id;
+    private int imagem;
 
-    public Produto(String name, int id, int pegadaEcologica){
+    public Produto(String name, String id, int pegadaEcologica, int imagem){
         this.name = name;
         this.id = id;
         this.pegadaEcologica = pegadaEcologica;
+        this.imagem = imagem;
     }
 
     public String getName() {
@@ -21,24 +25,21 @@ public class Produto {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
+    @Override
     public String toString(){
-        return "ID: " + id + "\nNOME: " + name + "\nPegada Ecologica " + pegadaEcologica;
+        return "ID: " + id + "\nNOME: " + name + "\nPegada Ecologica: " + pegadaEcologica;
     }
 
     public int getPegadaEcologica() {
         return pegadaEcologica;
-    }
-
-    public void setPegadaEcologica(int pegadaEcologica) {
-        this.pegadaEcologica = pegadaEcologica;
     }
 
     @Override
@@ -47,7 +48,12 @@ public class Produto {
         if (o == null || getClass() != o.getClass()) return false;
         Produto produto = (Produto) o;
         return pegadaEcologica == produto.pegadaEcologica &&
-                id == produto.id &&
-                Objects.equals(name, produto.name);
+                imagem == produto.imagem &&
+                Objects.equals(name, produto.name) &&
+                Objects.equals(id, produto.id);
+    }
+
+    public int getImagem() {
+        return imagem;
     }
 }

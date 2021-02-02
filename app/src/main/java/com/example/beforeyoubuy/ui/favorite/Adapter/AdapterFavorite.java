@@ -39,7 +39,7 @@ public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.Favori
     @Override
     public void onBindViewHolder(@NonNull FavoriteViewHolder holder, int position) {
 
-        holder.setImagem(listaDeProdutos.get(position).getId());
+        holder.setImagem(listaDeProdutos.get(position).getImagem());
         holder.setNome("Produto: " + listaDeProdutos.get(position).getName());
         holder.setPegada(listaDeProdutos.get(position).getPegadaEcologica());
     }
@@ -65,7 +65,8 @@ public class AdapterFavorite extends RecyclerView.Adapter<AdapterFavorite.Favori
         }
 
         public void setPegada(int pegada) {
-            this.pegada.setText("Pegada Ecólogica: " + String.valueOf(pegada));
+            String text = "Pegada Ecólogica: " + pegada;
+            this.pegada.setText(text);
         }
     }
 }
